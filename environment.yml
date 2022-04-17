@@ -1,0 +1,11 @@
+name: mrisimpy
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - pip:
+    - jupyterlab
+    - torch
+    - tqdm
+    - matplotlib

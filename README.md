@@ -1,9 +1,18 @@
+# env prepare
+create conda environment first if needed
+
+```bash
+#just need for first time
+conda create -f environment.yml
+conda activate mrisimpy
+```
+
 # mri-sim-py
 Magnetic Resonance Imaging (MRI) Simulation Code in Python
 
 add `epg` to `$PYHTONPATH`:
 ```bash
-export PYTHONPATH=epg:${PYTHONPATH}
+export PYTHONPATH=$PWD:${PYTHONPATH}
 ```
 
 ## EPG CPMG back-propagation
