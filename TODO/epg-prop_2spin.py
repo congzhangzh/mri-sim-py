@@ -89,7 +89,7 @@ class PulseTrain:
 
     def print_verbose(self, str):
         if self.verbose:
-            print str, RAD2DEG(self.angles_rad)
+            print(rf'{str} {RAD2DEG(self.angles_rad)}')
 
     def plot_vals(self, thetas):
         plt.subplot(2,1,1)
@@ -210,7 +210,7 @@ def read_angles(fliptable):
 
 def print_table(P1, P2, P3):
     print
-    print '\tP1\tP2\tP3\nloss\t%3.3f\t%3.3f\t%3.3f\nnloss\t%3.3f\t%3.3f\t%3.3f\n' % (
+    print('\tP1\tP2\tP3\nloss\t%3.3f\t%3.3f\t%3.3f\nnloss\t%3.3f\t%3.3f\t%3.3f\n' % (
             loss(theta1, theta2, P1.angles_rad, P1.phase_rad, TE, TR),
             loss(theta1, theta2, P2.angles_rad, P2.phase_rad, TE, TR),
             loss(theta1, theta2, P3.angles_rad, P3.phase_rad, TE, TR),
@@ -218,6 +218,7 @@ def print_table(P1, P2, P3):
             normalized_loss(theta1, theta2, P2.angles_rad, P2.phase_rad, TE, TR),
             normalized_loss(theta1, theta2, P3.angles_rad, P3.phase_rad, TE, TR)
             )
+    )
 
 
 
@@ -266,11 +267,11 @@ if __name__ == "__main__":
     NG_time = t2 - t1
     LP_time = t3 - t2
 
-    print 'Numerical Gradient\t(%03.3f s)\t' % NG_time, NG
+    print('Numerical Gradient\t(%03.3f s)\t%s' % (NG_time, NG))
     print
-    print 'Analytical Gradient\t(%03.3f s)\t' % LP_time, LP
+    print('Analytical Gradient\t(%03.3f s)\t%s' % (LP_time, LP))
     print
-    print 'Error:', np.linalg.norm(NG - LP) / np.linalg.norm(NG)
+    print('Error: %s'%(np.linalg.norm(NG - LP) / np.linalg.norm(NG)))
 
     #plt.plot(TE*1000*np.arange(1, T+1), S2)
     #plt.xlabel('time (ms)')
